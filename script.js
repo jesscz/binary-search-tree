@@ -18,18 +18,16 @@ function Tree(array, root){
 }
 
 function buildTree(array){
-    let i = 0;
     const initial = new Node(array[0]);
-    let tree = { root: null };
-    tree.root = initial.add();
-    console.log(tree.root.value);//
-    console.log(array.length)//
+    let tree = { root: null }; //create tree base
+    tree.root = initial.add(); //add initial value to tree
+    let i = 0; 
     
     for (i++;i<array.length;i++){ //counts through array by index number (starts at 1)
         const next = new Node(array[i]);
-        let curr = tree.root;
+        let curr = tree.root; //starting with the value at the root
         let placed = false;
-        while(placed == false){
+        while(placed == false){ //loop through the tree until the right spot (it is null/available)
             if (array[i] < curr.value && curr.left != null){
             curr = curr.left;
             }
@@ -47,15 +45,9 @@ function buildTree(array){
                 break;
             }
         }
-        
-
-        // console.log(create.add())
     }
     console.log(tree)
-
-
-
-    
+    return tree;
 }
 
 buildTree(array);
