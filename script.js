@@ -47,30 +47,34 @@ function Tree(array){
         }
     }
 
+    
     this.buildTree = function(arr, start = 0, end = arr.length - 1){ //builds balanced binary tree
         if (start > end) return null;
         
         let mid = Math.floor((start + end) / 2);
         let node = Node(arr[mid]);
         
+        if (tree.root == null){
+            tree.root = node
+        }
+
         node.left = this.buildTree(arr, start, mid - 1);
         node.right = this.buildTree(arr, mid + 1, end);
         
         return node;
     }
 
-    this.insert = function(value){ //adds value to be inserted to the array (which the tree is built from)
-        // const next = new Node(value);
-        // let curr = tree.root;
-        // let placed = false;
-        // console.log(next)
-        // while (curr.right != null){
-        //     curr = curr.right;
-        // }
-        // curr.right = next.add()
-        array.push(value);
-        // console.log(array)
 
+    this.insert = function(value){ //adds value to be inserted to the array (which the tree is built from)
+        let newNode = Node(value);
+
+        console.log(newNode)
+        console.log(tree)
+        
+        if (tree.root.value < value){
+            
+        }
+        
     }
 
 
@@ -79,5 +83,5 @@ function Tree(array){
 
 const tree = new Tree(array);
 
-
 tree.prettyPrint(tree.buildTree(tree.prepTree()));
+tree.insert(14)
